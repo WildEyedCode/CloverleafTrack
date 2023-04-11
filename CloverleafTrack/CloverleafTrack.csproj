@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Using Include="CloverleafTrack" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
+    <PackageReference Include="ServiceStack" Version="6.*" />
+
+    <!-- Required for Razor compilation on change: https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-compilation?view=aspnetcore-5.0 -->
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.*" Condition="'$(Configuration)' == 'Debug'" />
+    <PackageReference Include="ServiceStack.Api.OpenApi" Version="6.*" />
+    <PackageReference Include="ServiceStack.OrmLite.SqlServer" Version="6.*" />
+    <PackageReference Include="ServiceStack.Redis" Version="6.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CloverleafTrack.ServiceInterface\CloverleafTrack.ServiceInterface.csproj" />
+    <ProjectReference Include="..\CloverleafTrack.ServiceModel\CloverleafTrack.ServiceModel.csproj" />
+  </ItemGroup>
+
+</Project>
